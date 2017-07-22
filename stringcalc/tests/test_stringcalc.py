@@ -62,6 +62,27 @@ class StringCalcTests(unittest.TestCase):
         result = str_add(test_input)
         self.assertEqual(expected, result)
 
+    def test_two_numbers_new_line(self):
+        """Test for 2 number input with new line separator"""
+        expected = 3
+        result = str_add("1\n2")
+        self.assertEqual(expected, result)
+
+    def test_mixed_delimitators(self):
+        """Test for fix of , and new line as separators"""
+        expected = 6
+        result = str_add("1,2\n3")
+        self.assertEqual(expected, result)
+
+        expected = 6
+        result = str_add("1\n2,3")
+        self.assertEqual(expected, result)
+
+        expected = 10
+        # catch use of ', '
+        result = str_add("1, 2,3\n4")
+        self.assertEqual(expected, result)
+
 
 if __name__ == "__main__":
     unittest.main()

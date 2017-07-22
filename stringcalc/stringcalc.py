@@ -5,10 +5,11 @@ copyright (c) 2017 Paul Munday.
 All rights reserved
 ..codeauthor::Paul Munday <paul@paulmunday.net>
 
-[ INSERT DOC STRING ]  # TODO
+String Calc Kata
 """
 
 # Imports from Standard Library
+import re
 
 # Imports from Third Party Modules
 
@@ -34,6 +35,6 @@ def str_add(numbers):
     :returns: sum of numbers
     :rtype: int
     """
-    numbers = [int(number) for number in  numbers.split(',') if number]
+    numbers = re.split(",|\n", numbers)
+    numbers = [int(number.strip()) for number in numbers if number]
     return sum(numbers)
-
