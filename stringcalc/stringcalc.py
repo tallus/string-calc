@@ -25,5 +25,15 @@ All rights reserved
 
 
 # Public Classes and Functions
+def str_add(numbers):
+    """
+    Return the sum of numbers
 
+    :param numbers: 0 or more numbers, separated by a comma
+    :type numbers: str
+    :returns: sum of numbers
+    :rtype: int
+    """
+    numbers = [int(number) for number in  numbers.split(',') if number]
+    return sum(numbers)
 
